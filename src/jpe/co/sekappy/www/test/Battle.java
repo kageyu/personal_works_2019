@@ -1,6 +1,5 @@
 package jpe.co.sekappy.www.test;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -97,7 +96,7 @@ public class Battle {
 			String C = addRandomChar();
 			final String S = "ン";
 
-			if (i == 0 && C == S) {
+			if (i == 0 && S.equals(C)) {
 				i -= 1;
 			} else {
 				name += C;
@@ -176,23 +175,21 @@ public class Battle {
 				System.out.println(String.format("Files:%s", s));
 			}
 
-			String brLine;
-			try (BufferedReader br = Files.newBufferedReader(Paths.get(logDir, logFileName))) {
-				while ((brLine = br.readLine()) != null) {
-					System.out.println(String.format("brLine:%s", brLine));
-				}
-			}
-
-			try(Stream<String> stream =	Files.lines(Paths.get(logDir, logFileName))){
-				stream.forEach(streamLine -> {
-					System.out.println(String.format("Stream:%s",streamLine));
-				});
-			}
+//			String brLine;
+//			try (BufferedReader br = Files.newBufferedReader(Paths.get(logDir, logFileName))) {
+//				while ((brLine = br.readLine()) != null) {
+//					System.out.println(String.format("brLine:%s", brLine));
+//				}
+//			}
+//
+//			try(Stream<String> stream =	Files.lines(Paths.get(logDir, logFileName))){
+//				stream.forEach(streamLine -> {
+//					System.out.println(String.format("Stream:%s",streamLine));
+//				});
+//			}
 
 
 			//ログファイル一覧を更新する処理
-			final String logListPathString = "c:\\data";
-			Path logListPath = Paths.get(logListPathString);
 			ArrayList<String>  logList= new ArrayList<>();
 
 			String logListDir = "c:\\data";
@@ -415,7 +412,6 @@ public class Battle {
 		addLog();
 
 
-		//ログ一覧を生成、更新する処理を入れる
 
 
 
